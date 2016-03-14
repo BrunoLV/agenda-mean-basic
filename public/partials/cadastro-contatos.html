@@ -1,0 +1,113 @@
+<div class="container">
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            Cadastro Contato
+        </div>
+        <div class="panel-body">
+
+            <p ng-show="mensagem.length" class="alert alert-info">{{mensagem}}</p>
+
+            <form name="formulario">
+
+                <uib-tabset active="active">
+
+                    <uib-tab index="0" heading="Dados">
+
+                        <br/>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                Dados Básicos
+                            </div>
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Nome</label>
+                                            <input name="nome" class="form-control" ng-model="contato.nome">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </uib-tab>
+
+                    <uib-tab index="1" heading="Telefones">
+
+                        <br/>
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                Dados Básicos
+                            </div>
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-md-1">
+                                        <div class="form-group">
+                                            <label>DDD</label>
+                                            <input name="ddd" class="form-control" ng-model="telefone.ddd">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label>Número</label>
+                                            <input name="numero" class="form-control" ng-model="telefone.numero">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="btn-group">
+                                    <button class="btn btn-primary" type="button"  tooltip-placement="top" uib-tooltip="Incluir" ng-click="incluirTelefone()">
+                                        <span class="glyphicon glyphicon-plus-sign"></span>
+                                    </button>
+                                </div>
+
+                                <br/>
+                                <br/>
+
+                                <div ng-show="contato.telefones" class="table-responsive">
+                                    <table class="table table-bordered table-hover table-condensed">
+                                        <thead>
+                                        <tr>
+                                            <th style="width: 10%;"></th>
+                                            <th style="width: 10%;">DDD</th>
+                                            <th>Número</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr ng-repeat="telefone in contato.telefones">
+                                            <td style="text-align: center">
+                                                <button type="button" class="btn btn-primary" tooltip-placement="top" uib-tooltip="Editar" ng-click="editarTelefone(telefone)">
+                                                    <span class="glyphicon glyphicon-pencil"></span>
+                                                </button>
+
+                                                <button type="button" class="btn btn-danger" tooltip-placement="top" uib-tooltip="Excluir" ng-click="removerTelefone(telefone)">
+                                                    <span class="glyphicon glyphicon-trash"></span>
+                                                </button>
+                                            </td>
+                                            <td>{{telefone.ddd}}</td>
+                                            <td>{{telefone.numero}}</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </uib-tab>
+
+                </uib-tabset>
+
+                <span class="btn-group">
+    	            <button class="btn btn-primary" type="button" tooltip-placement="top" uib-tooltip="Salvar" ng-click="salvar()">
+                        <span class="glyphicon glyphicon-floppy-disk"></span>
+                    </button>
+                    <button class="btn btn-default" type="button" tooltip-placement="top" uib-tooltip="Listar" ng-click="listar()">
+                        <span class="glyphicon glyphicon-list-alt"></span>
+                    </button>
+                </span>
+            </form>
+        </div>
+    </div>
+
+</div>

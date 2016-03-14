@@ -1,0 +1,1 @@
+var agenda = angular.module('agenda', ['ngRoute', 'ui.bootstrap']);
